@@ -6,7 +6,7 @@ const { FB } = require("fb");
 //connecting with fb posts
 exports.addWebhook = async (req, res) => {
 	let body = req.body;
-	console.log("add" + body);
+	console.log("add" + JSON.stringify(body));
 	if (body.object === "page") {
 		body.entry.forEach(function (entry) {
 			if (entry.messaging) {
