@@ -6,6 +6,7 @@ const { FB } = require("fb");
 //connecting with fb posts
 exports.addWebhook = async (req, res) => {
 	let body = req.body;
+	console.log("add" + body);
 	if (body.object === "page") {
 		body.entry.forEach(function (entry) {
 			if (entry.messaging) {
@@ -32,7 +33,7 @@ exports.verifyWebhook = async (req, res) => {
 	let mode = req.query["hub.mode"];
 	let token = req.query["hub.verify_token"];
 	let challenge = req.query["hub.challenge"];
-
+	console.log("verifuy" + mode);
 	if (mode && token) {
 		if (mode === "subscribe" && token === VERIFY_TOKEN) {
 			console.log("WEBHOOK_VERIFIED");
