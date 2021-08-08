@@ -16,6 +16,7 @@ exports.getAccounts = async (req, res) => {
 	FB.setAccessToken(req.token);
 	FB.api("me/accounts", "GET", (_res) => {
 		if (_res.data) {
+			console.log('message error');
 			return res.send({
 				msg: "Accounts details fetched",
 				data: { accounts: _res.data },
